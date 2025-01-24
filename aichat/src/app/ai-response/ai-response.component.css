@@ -1,0 +1,29 @@
+.ai-response {
+  background-color: var(--chat-bubble-bg);
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.response-bubble {
+  background-color: var(--secondary-color);
+  padding: 15px;
+  border-radius: var(--border-radius);
+  margin-top: 10px;
+  position: relative;
+}
+
+.response-bubble::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 15px;
+  border-style: solid;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent var(--secondary-color) transparent transparent;
+}
+
+.response-text {
+  margin: 0;
+  line-height: 1.6;
+}

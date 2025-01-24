@@ -1,0 +1,37 @@
+<div class="chat-container">
+  <div class="header">
+    <div class="file-selector" *ngIf="!selectedFile">
+      <select (change)="onFileSelect($event)">
+        <option value="">Choose a file</option>
+        <option *ngFor="let file of files" [value]="file.id">
+          {{ file.name }}
+        </option>
+      </select>
+    </div>
+    <div class="selected-file" *ngIf="selectedFile">
+      <span>Current file: {{ selectedFile.name }}</span>
+      <button (click)="changeFile()" class="change-file-btn">Change File</button>
+    </div>
+  </div>
+
+  <div class="messages-container" #scrollContainer>
+    <div *ngFor="let message of messages" 
+         [ngClass]="{'user-message': message.isUser, 'ai-message': !message.isUser}"
+         class="message">
+      <div class="message-content">
+        <p>{{ message.text }}</p>
+        <span class="timestamp">{{ message.timestamp | date:'shortTime' }}</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="input-section">
+    <div class="chat-input">
+      <input 
+        [(ngModel)]="question" 
+        placeholder="Type your question here..."
+        (keyup.enter)="askQuestion()">
+      <button (click)="askQuestion()">Send</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="file-selector">
+    <h2>Select a File</h2>
+    <div class="search-container">
+      <input 
+        type="text" 
+        [(ngModel)]="searchTerm" 
+        (input)="onSearch()"
+        placeholder="Search files...">
+    </div>
+    <select (change)="onFileSelect($event)">
+      <option value="">Choose a file</option>
+      <option *ngFor="let file of filteredFiles" [value]="file.id">
+        {{ file.name }}
+      </option>
+    </select>
+  </div>
