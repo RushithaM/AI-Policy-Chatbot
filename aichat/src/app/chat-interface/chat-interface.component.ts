@@ -7,6 +7,7 @@ import { Message } from '../models/message.interface';
 interface File {
   id: number;
   name: string;
+  url: string;
   context: string;
 }
 
