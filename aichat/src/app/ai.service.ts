@@ -16,7 +16,7 @@ interface File {
 })
 export class AiService {
   private apiUrl = 'http://localhost:3000/api';
-  private API_KEY = 'AIzaSyBORV1ABtDwX5b9d2If568PV_6vmUO3-74';
+  private API_KEY = 'AI_API_KEY';
   private API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent';
   private selectedFile = new BehaviorSubject<File | null>(null);
   private aiResponse = new BehaviorSubject<string>('');
